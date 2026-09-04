@@ -30,7 +30,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.7"
-
+      - name: Enable AndroidX
+        run: echo "android.useAndroidX=true" > buildsrc/gradle.properties
       - name: Build APK
         working-directory: buildsrc
         run: gradle :app:assembleDebug --stacktrace
